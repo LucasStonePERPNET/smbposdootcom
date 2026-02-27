@@ -21,7 +21,7 @@
               200: "#c3ccff",
               300: "#9aa4ff",
               400: "#707dff",
-              500: "#4b57ff",   // primary accent
+              500: "#4b57ff",
               600: "#343ecc",
               700: "#262e99",
               800: "#191f66",
@@ -37,11 +37,16 @@
           animation: {
             "float-slow": "float 18s ease-in-out infinite",
             "float-slower": "float 28s ease-in-out infinite",
+            "pulse-soft": "pulseSoft 2s ease-in-out infinite",
           },
           keyframes: {
             float: {
               "0%, 100%": { transform: "translate3d(0, 0, 0)" },
               "50%": { transform: "translate3d(20px, -30px, 0)" },
+            },
+            pulseSoft: {
+              "0%, 100%": { opacity: 0.6, transform: "scale(1)" },
+              "50%": { opacity: 1, transform: "scale(1.05)" },
             }
           }
         }
@@ -50,15 +55,61 @@
   </script>
 
   <style>
-    /* Hide scrollbars on some browsers for cleaner look */
+    /* Scrollbar styling */
     ::-webkit-scrollbar { width: 8px; }
     ::-webkit-scrollbar-track { background: #020617; }
     ::-webkit-scrollbar-thumb { background: #1f2937; border-radius: 9999px; }
     ::-webkit-scrollbar-thumb:hover { background: #4b5563; }
+
+    /* Fade-in on scroll base state */
+    .fade-section {
+      opacity: 0;
+      transform: translateY(16px);
+      transition: opacity 600ms ease-out, transform 600ms ease-out;
+    }
+    .fade-section.fade-visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Page loader overlay */
+    #page-loader {
+      opacity: 1;
+      pointer-events: auto;
+      transition: opacity 600ms ease-out;
+    }
+    #page-loader.loader-hidden {
+      opacity: 0;
+      pointer-events: none;
+    }
   </style>
 </head>
 
 <body class="bg-slate-950 text-slate-100 font-sans antialiased">
+  <!-- Page loading overlay -->
+  <div id="page-loader" class="fixed inset-0 z-50 flex flex-col items-center justify-center bg-slate-950">
+    <div class="flex flex-col items-center gap-4">
+      <!-- Swap this src to your real logo path -->
+      <img
+        src="/smbpos-logo.svg"
+        alt="smbPOS"
+        class="h-12 w-auto animate-pulse-soft"
+      />
+      <div class="h-1 w-40 overflow-hidden rounded-full bg-slate-800">
+        <div class="h-full w-1/2 animate-[loadingBar_1.4s_ease-in-out_infinite] bg-gradient-to-r from-brand-400 via-emerald-400 to-brand-500"></div>
+      </div>
+      <p class="text-xs text-slate-400">Loading smbPOS dashboard preview…</p>
+    </div>
+  </div>
+
+  <style>
+    @keyframes loadingBar {
+      0% { transform: translateX(-100%); }
+      50% { transform: translateX(20%); }
+      100% { transform: translateX(120%); }
+    }
+  </style>
+
   <!-- Background gradients -->
   <div class="fixed inset-0 -z-10 overflow-hidden">
     <div class="pointer-events-none absolute -top-48 -left-32 h-96 w-96 rounded-full bg-brand-500/40 blur-3xl opacity-70 animate-float-slow"></div>
@@ -73,10 +124,13 @@
     <header class="sticky top-0 z-30 border-b border-white/5 bg-slate-950/80 backdrop-blur">
       <div class="mx-auto flex max-w-6xl items-center justify-between px-4 py-4 sm:px-6 lg:px-8">
         <a href="#top" class="flex items-center gap-2">
-          <div class="flex h-9 w-9 items-center justify-center rounded-xl bg-gradient-to-br from-brand-400 via-brand-500 to-emerald-400 shadow-glow">
-            <span class="text-sm font-semibold tracking-tight">smb</span>
-          </div>
-          <div class="leading-tight">
+          <!-- Replace this src with your actual logo file -->
+          <img
+            src="/smbpos-logo.svg"
+            alt="smbPOS"
+            class="h-8 w-auto"
+          />
+          <div class="leading-tight hidden sm:block">
             <p class="font-semibold tracking-tight">smbPOS</p>
             <p class="text-xs text-slate-400">Fast. Simple. Reliable.</p>
           </div>
@@ -128,7 +182,7 @@
     <main id="top" class="mx-auto max-w-6xl px-4 pb-16 pt-10 sm:px-6 sm:pt-14 lg:px-8 lg:pb-24">
       <!-- Hero -->
       <section class="grid gap-10 pb-16 pt-6 lg:grid-cols-[minmax(0,1.35fr)_minmax(0,1fr)] lg:items-center">
-        <div>
+        <div class="fade-section">
           <div class="inline-flex items-center gap-2 rounded-full border border-white/10 bg-slate-900/70 px-3 py-1 text-xs font-medium text-slate-300 shadow">
             <span class="h-1.5 w-1.5 rounded-full bg-emerald-400"></span>
             Modern POS for real businesses
@@ -176,7 +230,7 @@
         </div>
 
         <!-- Hero “app preview” card -->
-        <div class="relative">
+        <div class="relative fade-section">
           <div class="pointer-events-none absolute -left-16 -top-10 h-24 w-24 rounded-full bg-brand-500/50 blur-3xl opacity-60"></div>
           <div class="pointer-events-none absolute -bottom-10 -right-10 h-32 w-32 rounded-full bg-emerald-400/40 blur-3xl opacity-60"></div>
 
@@ -241,7 +295,7 @@
       </section>
 
       <!-- Feature highlights -->
-      <section id="features" class="scroll-mt-24">
+      <section id="features" class="scroll-mt-24 fade-section">
         <div class="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
           <div>
             <h2 class="text-xl font-semibold tracking-tight sm:text-2xl">Built for the way SMBs actually run</h2>
@@ -255,7 +309,7 @@
         </div>
 
         <div class="mt-7 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-          <article class="group rounded-2xl border border-white/10 bg-slate-950/70 p-4 shadow-md shadow-black/40 backdrop-blur transition-transform hover:-translate-y-1 hover:shadow-xl">
+          <article class="group rounded-2xl border border-white/10 bg-slate-950/70 p-4 shadow-md shadow-black/40 backdrop-blur transition-transform hover:-translate-y-1 hover:shadow-xl fade-section">
             <div class="inline-flex h-8 w-8 items-center justify-center rounded-xl bg-brand-500/15 text-brand-200 text-sm">
               ⚡
             </div>
@@ -265,7 +319,7 @@
             </p>
           </article>
 
-          <article class="group rounded-2xl border border-white/10 bg-slate-950/70 p-4 shadow-md shadow-black/40 backdrop-blur transition-transform hover:-translate-y-1 hover:shadow-xl">
+          <article class="group rounded-2xl border border-white/10 bg-slate-950/70 p-4 shadow-md shadow-black/40 backdrop-blur transition-transform hover:-translate-y-1 hover:shadow-xl fade-section">
             <div class="inline-flex h-8 w-8 items-center justify-center rounded-xl bg-emerald-500/15 text-emerald-200 text-sm">
               📊
             </div>
@@ -275,7 +329,7 @@
             </p>
           </article>
 
-          <article class="group rounded-2xl border border-white/10 bg-slate-950/70 p-4 shadow-md shadow-black/40 backdrop-blur transition-transform hover:-translate-y-1 hover:shadow-xl">
+          <article class="group rounded-2xl border border-white/10 bg-slate-950/70 p-4 shadow-md shadow-black/40 backdrop-blur transition-transform hover:-translate-y-1 hover:shadow-xl fade-section">
             <div class="inline-flex h-8 w-8 items-center justify-center rounded-xl bg-fuchsia-500/15 text-fuchsia-200 text-sm">
               🔌
             </div>
@@ -285,7 +339,7 @@
             </p>
           </article>
 
-          <article class="group rounded-2xl border border-white/10 bg-slate-950/70 p-4 shadow-md shadow-black/40 backdrop-blur transition-transform hover:-translate-y-1 hover:shadow-xl">
+          <article class="group rounded-2xl border border-white/10 bg-slate-950/70 p-4 shadow-md shadow-black/40 backdrop-blur transition-transform hover:-translate-y-1 hover:shadow-xl fade-section">
             <div class="inline-flex h-8 w-8 items-center justify-center rounded-xl bg-sky-500/15 text-sky-200 text-sm">
               🧩
             </div>
@@ -295,7 +349,7 @@
             </p>
           </article>
 
-          <article class="group rounded-2xl border border-white/10 bg-slate-950/70 p-4 shadow-md shadow-black/40 backdrop-blur transition-transform hover:-translate-y-1 hover:shadow-xl">
+          <article class="group rounded-2xl border border-white/10 bg-slate-950/70 p-4 shadow-md shadow-black/40 backdrop-blur transition-transform hover:-translate-y-1 hover:shadow-xl fade-section">
             <div class="inline-flex h-8 w-8 items-center justify-center rounded-xl bg-amber-500/15 text-amber-200 text-sm">
               🔐
             </div>
@@ -305,7 +359,7 @@
             </p>
           </article>
 
-          <article class="group rounded-2xl border border-white/10 bg-slate-950/70 p-4 shadow-md shadow-black/40 backdrop-blur transition-transform hover:-translate-y-1 hover:shadow-xl">
+          <article class="group rounded-2xl border border-white/10 bg-slate-950/70 p-4 shadow-md shadow-black/40 backdrop-blur transition-transform hover:-translate-y-1 hover:shadow-xl fade-section">
             <div class="inline-flex h-8 w-8 items-center justify-center rounded-xl bg-cyan-500/15 text-cyan-200 text-sm">
               🧾
             </div>
@@ -318,7 +372,7 @@
       </section>
 
       <!-- Industries -->
-      <section id="industries" class="mt-16 scroll-mt-24">
+      <section id="industries" class="mt-16 scroll-mt-24 fade-section">
         <div class="flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
           <div>
             <h2 class="text-xl font-semibold tracking-tight sm:text-2xl">Ideal for multi-site, mobile, and hybrid setups</h2>
@@ -329,7 +383,7 @@
         </div>
 
         <div class="mt-7 grid gap-5 lg:grid-cols-3">
-          <article class="rounded-2xl border border-brand-500/40 bg-gradient-to-br from-brand-500/20 via-slate-950 to-slate-950 p-4 shadow-lg shadow-brand-900/60 backdrop-blur">
+          <article class="rounded-2xl border border-brand-500/40 bg-gradient-to-br from-brand-500/20 via-slate-950 to-slate-950 p-4 shadow-lg shadow-brand-900/60 backdrop-blur fade-section">
             <p class="text-xs font-semibold uppercase tracking-[0.16em] text-brand-200">Retail &amp; kiosks</p>
             <h3 class="mt-2 text-sm font-semibold text-slate-50">High-street stores, kiosks &amp; counters</h3>
             <p class="mt-2 text-xs text-slate-200">
@@ -337,7 +391,7 @@
             </p>
           </article>
 
-          <article class="rounded-2xl border border-emerald-500/35 bg-gradient-to-br from-emerald-500/20 via-slate-950 to-slate-950 p-4 shadow-lg shadow-emerald-900/60 backdrop-blur">
+          <article class="rounded-2xl border border-emerald-500/35 bg-gradient-to-br from-emerald-500/20 via-slate-950 to-slate-950 p-4 shadow-lg shadow-emerald-900/60 backdrop-blur fade-section">
             <p class="text-xs font-semibold uppercase tracking-[0.16em] text-emerald-200">Hospitality</p>
             <h3 class="mt-2 text-sm font-semibold text-slate-50">Cafés, canteens &amp; sandwich vans</h3>
             <p class="mt-2 text-xs text-slate-200">
@@ -345,7 +399,7 @@
             </p>
           </article>
 
-          <article class="rounded-2xl border border-fuchsia-500/35 bg-gradient-to-br from-fuchsia-500/15 via-slate-950 to-slate-950 p-4 shadow-lg shadow-fuchsia-900/60 backdrop-blur">
+          <article class="rounded-2xl border border-fuchsia-500/35 bg-gradient-to-br from-fuchsia-500/15 via-slate-950 to-slate-950 p-4 shadow-lg shadow-fuchsia-900/60 backdrop-blur fade-section">
             <p class="text-xs font-semibold uppercase tracking-[0.16em] text-fuchsia-200">Trade &amp; services</p>
             <h3 class="mt-2 text-sm font-semibold text-slate-50">Workshops, showrooms &amp; field teams</h3>
             <p class="mt-2 text-xs text-slate-200">
@@ -356,7 +410,7 @@
       </section>
 
       <!-- How it works -->
-      <section id="how-it-works" class="mt-16 scroll-mt-24">
+      <section id="how-it-works" class="mt-16 scroll-mt-24 fade-section">
         <div class="flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
           <div>
             <h2 class="text-xl font-semibold tracking-tight sm:text-2xl">What early access looks like</h2>
@@ -367,7 +421,7 @@
         </div>
 
         <div class="mt-7 grid gap-4 md:grid-cols-3">
-          <article class="rounded-2xl border border-white/10 bg-slate-950/80 p-4 backdrop-blur">
+          <article class="rounded-2xl border border-white/10 bg-slate-950/80 p-4 backdrop-blur fade-section">
             <p class="text-xs font-semibold uppercase tracking-[0.16em] text-slate-400">Step 1</p>
             <h3 class="mt-2 text-sm font-semibold text-slate-50">Discovery &amp; fit</h3>
             <p class="mt-2 text-xs text-slate-300">
@@ -375,7 +429,7 @@
             </p>
           </article>
 
-          <article class="rounded-2xl border border-white/10 bg-slate-950/80 p-4 backdrop-blur">
+          <article class="rounded-2xl border border-white/10 bg-slate-950/80 p-4 backdrop-blur fade-section">
             <p class="text-xs font-semibold uppercase tracking-[0.16em] text-slate-400">Step 2</p>
             <h3 class="mt-2 text-sm font-semibold text-slate-50">Pilot rollout</h3>
             <p class="mt-2 text-xs text-slate-300">
@@ -383,7 +437,7 @@
             </p>
           </article>
 
-          <article class="rounded-2xl border border-white/10 bg-slate-950/80 p-4 backdrop-blur">
+          <article class="rounded-2xl border border-white/10 bg-slate-950/80 p-4 backdrop-blur fade-section">
             <p class="text-xs font-semibold uppercase tracking-[0.16em] text-slate-400">Step 3</p>
             <h3 class="mt-2 text-sm font-semibold text-slate-50">Scale &amp; support</h3>
             <p class="mt-2 text-xs text-slate-300">
@@ -394,7 +448,7 @@
       </section>
 
       <!-- Early access / simple pricing teaser -->
-      <section id="early-access" class="mt-16 scroll-mt-24">
+      <section id="early-access" class="mt-16 scroll-mt-24 fade-section">
         <div class="grid gap-6 lg:grid-cols-[minmax(0,1.2fr)_minmax(0,1fr)] lg:items-center">
           <div>
             <h2 class="text-xl font-semibold tracking-tight sm:text-2xl">Join the smbPOS early access list</h2>
@@ -422,7 +476,7 @@
             </div>
           </div>
 
-          <div class="rounded-3xl border border-white/10 bg-slate-950/80 p-5 shadow-xl backdrop-blur">
+          <div class="rounded-3xl border border-white/10 bg-slate-950/80 p-5 shadow-xl backdrop-blur fade-section">
             <p class="text-xs font-semibold uppercase tracking-[0.16em] text-slate-400">What to expect</p>
             <ul class="mt-3 space-y-2 text-xs text-slate-300">
               <li><span class="text-emerald-300">•</span> A short intro call — no hard selling.</li>
@@ -442,7 +496,7 @@
     </main>
 
     <!-- Footer -->
-    <footer class="border-t border-white/5 bg-slate-950/90">
+    <footer class="border-t border-white/5 bg-slate-950/90 fade-section">
       <div class="mx-auto flex max-w-6xl flex-col gap-4 px-4 py-6 text-xs text-slate-400 sm:flex-row sm:items-center sm:justify-between sm:px-6 lg:px-8">
         <div class="flex items-center gap-2">
           <div class="flex h-7 w-7 items-center justify-center rounded-lg bg-slate-900">
@@ -481,13 +535,44 @@
       iconClose.classList.toggle("hidden", isOpen);
     });
 
-    // Close mobile menu when clicking a link
     mobileMenu?.querySelectorAll("a").forEach((link) => {
       link.addEventListener("click", () => {
         mobileMenu.classList.add("hidden");
         iconOpen.classList.remove("hidden");
         iconClose.classList.add("hidden");
       });
+    });
+
+    // Fade-in on scroll using IntersectionObserver
+    const fadeElements = document.querySelectorAll(".fade-section");
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("fade-visible");
+            // Optional: stop observing once visible for performance
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      {
+        threshold: 0.15,
+      }
+    );
+
+    fadeElements.forEach((el, index) => {
+      // Slight stagger by applying a delay via inline style
+      el.style.transitionDelay = `${index * 40}ms`;
+      observer.observe(el);
+    });
+
+    // Page loader hide on full load
+    window.addEventListener("load", () => {
+      const loader = document.getElementById("page-loader");
+      if (!loader) return;
+      loader.classList.add("loader-hidden");
+      // Optional: remove from DOM after transition
+      setTimeout(() => loader.remove(), 700);
     });
   </script>
 </body>
