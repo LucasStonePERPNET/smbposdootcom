@@ -98,7 +98,7 @@
       <div class="h-1 w-40 overflow-hidden rounded-full bg-slate-800">
         <div class="h-full w-1/2 animate-[loadingBar_1.4s_ease-in-out_infinite] bg-gradient-to-r from-brand-400 via-emerald-400 to-brand-500"></div>
       </div>
-      <p class="text-xs text-slate-400">Loading smbPOS dashboard preview…</p>
+      <p class="text-xs text-slate-400">Loading smbPOS…</p>
     </div>
   </div>
 
@@ -495,13 +495,12 @@
     <footer class="border-t border-white/5 bg-slate-950/90 fade-section">
       <div class="mx-auto flex max-w-6xl flex-col gap-4 px-4 py-6 text-xs text-slate-400 sm:flex-row sm:items-center sm:justify-between sm:px-6 lg:px-8">
         <div class="flex items-center gap-2">
-          <div class="flex h-7 w-7 items-center justify-center rounded-lg bg-slate-900">
-            <span class="text-[0.65rem] font-semibold">s</span>
-          </div>
-          <div class="leading-tight">
-            <p class="font-semibold text-slate-200">smbPOS</p>
-            <p>Fast. Simple. Reliable.</p>
-          </div>
+          <!-- Footer logo only -->
+          <img
+            src="/smbpos-logo.svg"
+            alt="smbPOS"
+            class="h-7 w-auto"
+          />
         </div>
         <div class="flex flex-wrap items-center gap-4">
           <a href="mailto:info@smbpos.co.uk" class="font-mono text-[0.7rem] text-slate-300 hover:text-white">
@@ -514,7 +513,7 @@
     </footer>
   </div>
 
-  <script>
+  <script
     // Set current year in footer
     document.getElementById("year").textContent = new Date().getFullYear();
 
@@ -562,14 +561,19 @@
       observer.observe(el);
     });
 
-    // Page loader hide on full load
-    window.addEventListener("load", () => {
-      const loader = document.getElementById("page-loader");
-      if (!loader) return;
-      loader.classList.add("loader-hidden");
-      // Optional: remove from DOM after transition
-      setTimeout(() => loader.remove(), 700);
-    });
+// Page loader hide on full load, with a 2s minimum display time
+window.addEventListener("load", () => {
+  const loader = document.getElementById("page-loader");
+  if (!loader) return;
+
+  const MIN_DURATION = 2000; // 2 seconds
+
+  setTimeout(() => {
+    loader.classList.add("loader-hidden");
+    // Optional: remove from DOM after fade-out transition
+    setTimeout(() => loader.remove(), 700);
+  }, MIN_DURATION);
+});
   </script>
 </body>
 </html>
