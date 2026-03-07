@@ -9,6 +9,21 @@
   <!-- Tailwind CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
 
+  <script>
+(async () => {
+  try {
+    const res = await fetch("https://ipapi.co/json/");
+    const data = await res.json();
+
+    if (data.country === "PL") {
+      if (!window.location.pathname.startsWith("/pl")) {
+        window.location.href = "/pl/";
+      }
+    }
+  } catch {}
+})();
+</script>
+
   <!-- Tailwind config tweaks -->
   <script>
     tailwind.config = {
