@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
+<html lang="pl" class="scroll-smooth">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>smbPOS — Fast. Simple. Reliable.</title>
-  <meta name="description" content="smbPOS is a modern point of sale platform built for real businesses. Fast, simple, and reliable POS for retail, hospitality, and services." />
+  <title>smbPOS — Szybki. Prosty. Niezawodny.</title>
+  <meta name="description" content="smbPOS to nowoczesny system sprzedaży stworzony dla prawdziwych firm. Szybki, prosty i niezawodny POS dla handlu, gastronomii i usług." />
 
   <!-- Tailwind CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
@@ -55,13 +55,11 @@
   </script>
 
   <style>
-    /* Scrollbar styling */
     ::-webkit-scrollbar { width: 8px; }
     ::-webkit-scrollbar-track { background: #020617; }
     ::-webkit-scrollbar-thumb { background: #1f2937; border-radius: 9999px; }
     ::-webkit-scrollbar-thumb:hover { background: #4b5563; }
 
-    /* Fade-in on scroll base state */
     .fade-section {
       opacity: 0;
       transform: translateY(16px);
@@ -72,7 +70,6 @@
       transform: translateY(0);
     }
 
-    /* Page loader overlay */
     #page-loader {
       opacity: 1;
       pointer-events: auto;
@@ -89,7 +86,6 @@
   <!-- Page loading overlay -->
   <div id="page-loader" class="fixed inset-0 z-50 flex flex-col items-center justify-center bg-slate-950">
     <div class="flex flex-col items-center gap-4">
-      <!-- Swap this src to your real logo path -->
       <img
         src="/smbpos-logo.svg"
         alt="smbPOS"
@@ -98,7 +94,7 @@
       <div class="h-1 w-40 overflow-hidden rounded-full bg-slate-800">
         <div class="h-full w-1/2 animate-[loadingBar_1.4s_ease-in-out_infinite] bg-gradient-to-r from-brand-400 via-emerald-400 to-brand-500"></div>
       </div>
-      <p class="text-xs text-slate-400">Loading smbPOS…</p>
+      <p class="text-xs text-slate-400">Ładowanie smbPOS…</p>
     </div>
   </div>
 
@@ -124,7 +120,6 @@
     <header class="sticky top-0 z-30 border-b border-white/5 bg-slate-950/80 backdrop-blur">
       <div class="mx-auto flex max-w-6xl items-center justify-between px-4 py-4 sm:px-6 lg:px-8">
         <a href="#top" class="flex items-center gap-2">
-          <!-- Replace this src with your actual logo file -->
           <img
             src="/smbpos-logo.svg"
             alt="smbPOS"
@@ -133,24 +128,23 @@
         </a>
 
         <nav class="hidden items-center gap-8 text-sm text-slate-300 md:flex">
-          <a href="#features" class="hover:text-white/90">Features</a>
-          <a href="#industries" class="hover:text-white/90">Who it’s for</a>
-          <a href="#how-it-works" class="hover:text-white/90">How it works</a>
-          <a href="#early-access" class="hover:text-white/90">Early access</a>
+          <a href="#features" class="hover:text-white/90">Funkcje</a>
+          <a href="#industries" class="hover:text-white/90">Dla kogo</a>
+          <a href="#how-it-works" class="hover:text-white/90">Jak to działa</a>
+          <a href="#early-access" class="hover:text-white/90">Wczesny dostęp</a>
         </nav>
 
         <div class="hidden md:flex items-center gap-3">
-          <a href="mailto:info@smbpos.co.uk" class="text-sm text-slate-300 hover:text-white/90">Contact</a>
+          <a href="mailto:info@smbpos.co.uk" class="text-sm text-slate-300 hover:text-white/90">Kontakt</a>
           <a href="#early-access" class="rounded-full bg-white px-4 py-2 text-sm font-medium text-slate-950 shadow-md hover:bg-slate-100 active:scale-[0.98]">
-            Join early access
+            Dołącz do wczesnego dostępu
           </a>
         </div>
 
-        <!-- Mobile menu button -->
         <button
           id="mobile-toggle"
           class="inline-flex items-center justify-center rounded-full border border-white/10 bg-slate-900/70 p-2 text-slate-200 md:hidden"
-          aria-label="Toggle menu"
+          aria-label="Przełącz menu"
         >
           <svg id="icon-open" xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.6" d="M4 6h16M4 12h16M4 18h16" />
@@ -164,12 +158,12 @@
       <!-- Mobile menu -->
       <div id="mobile-menu" class="hidden border-t border-white/5 bg-slate-950/95 px-4 pb-4 pt-2 md:hidden">
         <nav class="flex flex-col gap-2 text-sm text-slate-200">
-          <a href="#features" class="rounded-lg px-2 py-2 hover:bg-white/5">Features</a>
-          <a href="#industries" class="rounded-lg px-2 py-2 hover:bg-white/5">Who it’s for</a>
-          <a href="#how-it-works" class="rounded-lg px-2 py-2 hover:bg-white/5">How it works</a>
-          <a href="#early-access" class="rounded-lg px-2 py-2 hover:bg-white/5">Early access</a>
+          <a href="#features" class="rounded-lg px-2 py-2 hover:bg-white/5">Funkcje</a>
+          <a href="#industries" class="rounded-lg px-2 py-2 hover:bg-white/5">Dla kogo</a>
+          <a href="#how-it-works" class="rounded-lg px-2 py-2 hover:bg-white/5">Jak to działa</a>
+          <a href="#early-access" class="rounded-lg px-2 py-2 hover:bg-white/5">Wczesny dostęp</a>
           <a href="mailto:info@smbpos.co.uk" class="mt-2 rounded-full bg-white px-3 py-2 text-center text-xs font-semibold text-slate-950 shadow active:scale-[0.98]">
-            Email us
+            Napisz do nas
           </a>
         </nav>
       </div>
@@ -181,17 +175,18 @@
         <div class="fade-section">
           <div class="inline-flex items-center gap-2 rounded-full border border-white/10 bg-slate-900/70 px-3 py-1 text-xs font-medium text-slate-300 shadow">
             <span class="h-1.5 w-1.5 rounded-full bg-emerald-400"></span>
-            Modern POS for real businesses
+            Nowoczesny system sprzedaży dla prawdziwych biznesów
           </div>
 
           <h1 class="mt-5 text-balance text-4xl font-semibold tracking-tight sm:text-5xl lg:text-[3.25rem]">
-            Fast. Simple. <span class="text-brand-300">Reliable</span> point of sale.
+            Szybki. Prosty. <span class="text-brand-300">Niezawodny</span> system sprzedaży.
           </h1>
 
           <p class="mt-4 max-w-xl text-balance text-sm text-slate-300 sm:text-base">
-            Modern POS solutions are on the way.
-            We’re building something focused, powerful, and designed for real businesses —
-            without the bloat, contracts, or mystery fees.
+            Nowoczesne rozwiązania naszego systemu sprzedaży już wkrótce.
+            Tworzymy system skoncentrowany na tym, co najważniejsze, wydajny,
+            przejrzysty i zaprojektowany dla prawdziwych firm — bez zbędnych funkcji,
+            długich umów i ukrytych opłat.
           </p>
 
           <div class="mt-7 flex flex-wrap items-center gap-3">
@@ -199,28 +194,28 @@
               href="#early-access"
               class="inline-flex items-center justify-center rounded-full bg-brand-500 px-5 py-2.5 text-sm font-semibold text-white shadow-glow shadow-brand-500/60 transition-transform hover:bg-brand-400 active:scale-[0.97]"
             >
-              Join the early access list
+              Dołącz do listy wczesnego dostępu
             </a>
             <a
-              href="mailto:info@smbpos.co.uk?subject=Tell%20me%20more%20about%20smbPOS"
+              href="mailto:info@smbpos.co.uk?subject=Chcę%20dowiedzie%C4%87%20si%C4%99%20wi%C4%99cej%20o%20smbPOS"
               class="inline-flex items-center justify-center rounded-full border border-white/15 bg-slate-900/60 px-4 py-2.5 text-sm font-semibold text-slate-100 backdrop-blur hover:bg-slate-800/80 active:scale-[0.97]"
             >
-              Book a call
+              Umów rozmowę
             </a>
           </div>
 
           <div class="mt-6 flex flex-wrap items-center gap-4 text-xs text-slate-400">
             <div class="flex items-center gap-2">
               <span class="inline-flex h-5 w-5 items-center justify-center rounded-full bg-emerald-500/15 text-[0.65rem] text-emerald-300">✓</span>
-              <span>No long-term contracts</span>
+              <span>Bez długoterminowych umów</span>
             </div>
             <div class="flex items-center gap-2">
               <span class="inline-flex h-5 w-5 items-center justify-center rounded-full bg-emerald-500/15 text-[0.65rem] text-emerald-300">✓</span>
-              <span>Built for UK SMBs</span>
+              <span>Stworzony dla małych i średnich firm</span>
             </div>
             <div class="flex items-center gap-2">
               <span class="inline-flex h-5 w-5 items-center justify-center rounded-full bg-emerald-500/15 text-[0.65rem] text-emerald-300">✓</span>
-              <span>Real-time visibility across sites</span>
+              <span>Podgląd sprzedaży w czasie rzeczywistym</span>
             </div>
           </div>
         </div>
@@ -233,45 +228,45 @@
           <div class="relative rounded-3xl border border-white/10 bg-slate-900/70 p-4 shadow-2xl shadow-black/60 backdrop-blur">
             <div class="flex items-center justify-between border-b border-white/10 pb-3">
               <div>
-                <p class="text-xs font-semibold uppercase tracking-[0.12em] text-slate-400">Live overview</p>
-                <p class="text-sm text-slate-200">Today at a glance</p>
+                <p class="text-xs font-semibold uppercase tracking-[0.12em] text-slate-400">Podgląd na żywo</p>
+                <p class="text-sm text-slate-200">Dzisiejsze wyniki</p>
               </div>
               <span class="rounded-full bg-emerald-500/20 px-3 py-1 text-xs font-semibold text-emerald-300">
-                Online • 4 tills
+                Online • 4 kasy
               </span>
             </div>
 
             <div class="mt-4 space-y-4 text-xs text-slate-200">
               <div class="grid grid-cols-3 gap-3">
                 <div class="rounded-2xl bg-slate-900/80 p-3 border border-white/5">
-                  <p class="text-[0.65rem] text-slate-400">Today’s takings</p>
+                  <p class="text-[0.65rem] text-slate-400">Dzisiejszy utarg</p>
                   <p class="mt-1 text-lg font-semibold">£4,820.36</p>
-                  <p class="mt-1 text-[0.65rem] text-emerald-300">+18% vs last week</p>
+                  <p class="mt-1 text-[0.65rem] text-emerald-300">+18% vs zeszły tydzień</p>
                 </div>
                 <div class="rounded-2xl bg-slate-900/80 p-3 border border-white/5">
-                  <p class="text-[0.65rem] text-slate-400">Average basket</p>
+                  <p class="text-[0.65rem] text-slate-400">Średnia wartość koszyka</p>
                   <p class="mt-1 text-lg font-semibold">£18.44</p>
-                  <p class="mt-1 text-[0.65rem] text-emerald-300">+7% vs last week</p>
+                  <p class="mt-1 text-[0.65rem] text-emerald-300">+7% vs zeszły tydzień</p>
                 </div>
                 <div class="rounded-2xl bg-slate-900/80 p-3 border border-white/5">
-                  <p class="text-[0.65rem] text-slate-400">Live tills</p>
+                  <p class="text-[0.65rem] text-slate-400">Aktywne kasy</p>
                   <p class="mt-1 text-lg font-semibold">4 / 4</p>
-                  <p class="mt-1 text-[0.65rem] text-emerald-300">All systems go</p>
+                  <p class="mt-1 text-[0.65rem] text-emerald-300">Wszystkie systemy działają</p>
                 </div>
               </div>
 
               <div class="rounded-2xl border border-white/5 bg-slate-900/90 p-3">
                 <div class="flex items-center justify-between mb-2">
-                  <p class="text-[0.7rem] font-semibold text-slate-200">Top performing locations</p>
-                  <span class="text-[0.65rem] text-slate-400">Today</span>
+                  <p class="text-[0.7rem] font-semibold text-slate-200">Najlepiej sprzedające się lokalizacje</p>
+                  <span class="text-[0.65rem] text-slate-400">Dziś</span>
                 </div>
                 <div class="space-y-2">
                   <div class="flex items-center justify-between">
-                    <span class="text-[0.7rem] text-slate-200">High Street Store</span>
+                    <span class="text-[0.7rem] text-slate-200">Sklep High Street</span>
                     <span class="text-[0.7rem] text-slate-100">£1,980</span>
                   </div>
                   <div class="flex items-center justify-between">
-                    <span class="text-[0.7rem] text-slate-200">Sandwich Van A</span>
+                    <span class="text-[0.7rem] text-slate-200">Van kanapkowy A</span>
                     <span class="text-[0.7rem] text-slate-100">£1,245</span>
                   </div>
                   <div class="flex items-center justify-between">
@@ -282,8 +277,8 @@
               </div>
 
               <div class="rounded-2xl border border-amber-400/40 bg-amber-500/10 px-3 py-2">
-                <p class="text-[0.7rem] font-semibold text-amber-200">Low stock alert</p>
-                <p class="text-[0.65rem] text-amber-100/90">3 high-selling items are below minimum stock. View and reorder in 2 clicks.</p>
+                <p class="text-[0.7rem] font-semibold text-amber-200">Alert niskiego stanu magazynowego</p>
+                <p class="text-[0.65rem] text-amber-100/90">3 najlepiej sprzedające się produkty mają niski stan magazynowy. Sprawdź i zamów ponownie w 2 kliknięciach.</p>
               </div>
             </div>
           </div>
@@ -294,13 +289,13 @@
       <section id="features" class="scroll-mt-24 fade-section">
         <div class="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
           <div>
-            <h2 class="text-xl font-semibold tracking-tight sm:text-2xl">Built for the way SMBs actually run</h2>
+            <h2 class="text-xl font-semibold tracking-tight sm:text-2xl">Stworzony pod realny sposób działania małych firm</h2>
             <p class="mt-1 max-w-xl text-sm text-slate-300">
-              smbPOS focuses on the things that matter — speed at the till, accuracy in the back office, and clear reporting that you can trust.
+              smbPOS skupia się na tym, co naprawdę ważne — szybkości przy kasie, dokładności w zapleczu oraz czytelnych raportach, którym możesz zaufać.
             </p>
           </div>
           <p class="text-xs text-slate-400">
-            Currently in private build. <span class="text-emerald-300">Early partners</span> help shape the roadmap.
+            Obecnie w prywatnej wersji testowej. <span class="text-emerald-300">Wcześni partnerzy</span> pomagają nam rozwijać kierunek produktu.
           </p>
         </div>
 
@@ -309,9 +304,9 @@
             <div class="inline-flex h-8 w-8 items-center justify-center rounded-xl bg-brand-500/15 text-brand-200 text-sm">
               ⚡
             </div>
-            <h3 class="mt-3 text-sm font-semibold text-slate-50">Lightning-fast, operator-friendly tills</h3>
+            <h3 class="mt-3 text-sm font-semibold text-slate-50">Błyskawiczna i intuicyjna kasa</h3>
             <p class="mt-2 text-xs text-slate-300">
-              Designed for real-world use, not demo videos. Clear buttons, keyboard shortcuts, offline mode, and no extra clicks.
+              Zaprojektowana do pracy w prawdziwym biznesie, nie tylko w prezentacjach. Duże, czytelne przyciski, skróty klawiaturowe, tryb offline i minimum kliknięć.
             </p>
           </article>
 
@@ -319,9 +314,9 @@
             <div class="inline-flex h-8 w-8 items-center justify-center rounded-xl bg-emerald-500/15 text-emerald-200 text-sm">
               📊
             </div>
-            <h3 class="mt-3 text-sm font-semibold text-slate-50">Real-time reporting &amp; exports</h3>
+            <h3 class="mt-3 text-sm font-semibold text-slate-50">Raporty w czasie rzeczywistym</h3>
             <p class="mt-2 text-xs text-slate-300">
-              Live sales, item performance, VAT breakdowns, and export-ready data for your accountant, all in a couple of clicks.
+              Podgląd sprzedaży na żywo, wyniki produktów, rozliczenia VAT i dane gotowe do eksportu dla księgowości — wszystko w kilku kliknięciach.
             </p>
           </article>
 
@@ -329,9 +324,9 @@
             <div class="inline-flex h-8 w-8 items-center justify-center rounded-xl bg-fuchsia-500/15 text-fuchsia-200 text-sm">
               🔌
             </div>
-            <h3 class="mt-3 text-sm font-semibold text-slate-50">Hardware &amp; payment friendly</h3>
+            <h3 class="mt-3 text-sm font-semibold text-slate-50">Gotowy do pracy ze sprzętem i płatnościami</h3>
             <p class="mt-2 text-xs text-slate-300">
-              Connect to mainstream card terminals, barcode scanners, printers, and customer displays — without proprietary lock-in.
+              Połączysz go z popularnymi terminalami płatniczymi, skanerami kodów, drukarkami paragonów i ekranami dla klientów — bez zamkniętych, drogich ekosystemów.
             </p>
           </article>
 
@@ -339,9 +334,9 @@
             <div class="inline-flex h-8 w-8 items-center justify-center rounded-xl bg-sky-500/15 text-sky-200 text-sm">
               🧩
             </div>
-            <h3 class="mt-3 text-sm font-semibold text-slate-50">Modular by design</h3>
+            <h3 class="mt-3 text-sm font-semibold text-slate-50">Modułowa budowa systemu</h3>
             <p class="mt-2 text-xs text-slate-300">
-              Start with core POS, then add modules for multi-site, kitchen screens, van routes, loyalty, and more as you grow.
+              Zacznij od podstawowego systemu POS, a potem dodawaj kolejne moduły — obsługę wielu lokalizacji, ekrany kuchenne, sprzedaż mobilną, programy lojalnościowe i więcej.
             </p>
           </article>
 
@@ -349,9 +344,9 @@
             <div class="inline-flex h-8 w-8 items-center justify-center rounded-xl bg-amber-500/15 text-amber-200 text-sm">
               🔐
             </div>
-            <h3 class="mt-3 text-sm font-semibold text-slate-50">Serious about reliability</h3>
+            <h3 class="mt-3 text-sm font-semibold text-slate-50">Niezawodność przede wszystkim</h3>
             <p class="mt-2 text-xs text-slate-300">
-              Automatic backups, role-based access controls, and audit trails so you always know who did what, and when.
+              Automatyczne kopie zapasowe, kontrola dostępu dla pracowników i pełna historia działań — zawsze wiesz kto, co i kiedy zrobił.
             </p>
           </article>
 
@@ -359,9 +354,9 @@
             <div class="inline-flex h-8 w-8 items-center justify-center rounded-xl bg-cyan-500/15 text-cyan-200 text-sm">
               🧾
             </div>
-            <h3 class="mt-3 text-sm font-semibold text-slate-50">Built with operators, not just devs</h3>
+            <h3 class="mt-3 text-sm font-semibold text-slate-50">Tworzony razem z prawdziwymi przedsiębiorcami</h3>
             <p class="mt-2 text-xs text-slate-300">
-              smbPOS is being shaped alongside real operators in retail, hospitality, and mobile catering — not just in a lab.
+              smbPOS powstaje we współpracy z właścicielami sklepów, gastronomii i biznesów mobilnych — nie tylko w biurze programistów.
             </p>
           </article>
         </div>
@@ -371,35 +366,35 @@
       <section id="industries" class="mt-16 scroll-mt-24 fade-section">
         <div class="flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
           <div>
-            <h2 class="text-xl font-semibold tracking-tight sm:text-2xl">Ideal for multi-site, mobile, and hybrid setups</h2>
+            <h2 class="text-xl font-semibold tracking-tight sm:text-2xl">Idealne dla firm z wieloma lokalizacjami, mobilnych zespołów i hybrydowych modeli pracy</h2>
             <p class="mt-1 max-w-xl text-sm text-slate-300">
-              From sandwich vans and retail counters to production sites and office-based teams, smbPOS keeps every till on the same page.
+              Od food trucków i punktów sprzedaży po zakłady produkcyjne i zespoły biurowe — smbPOS pozwala wszystkim stanowiskom sprzedaży działać w jednym, spójnym systemie.
             </p>
           </div>
         </div>
 
         <div class="mt-7 grid gap-5 lg:grid-cols-3">
           <article class="rounded-2xl border border-brand-500/40 bg-gradient-to-br from-brand-500/20 via-slate-950 to-slate-950 p-4 shadow-lg shadow-brand-900/60 backdrop-blur fade-section">
-            <p class="text-xs font-semibold uppercase tracking-[0.16em] text-brand-200">Retail &amp; kiosks</p>
-            <h3 class="mt-2 text-sm font-semibold text-slate-50">High-street stores, kiosks &amp; counters</h3>
+            <p class="text-xs font-semibold uppercase tracking-[0.16em] text-brand-200">Handel i kioski</p>
+            <h3 class="mt-2 text-sm font-semibold text-slate-50">Sklepy, kioski i punkty sprzedaży</h3>
             <p class="mt-2 text-xs text-slate-200">
-              Fast product search, barcode scanning, and support for multi-till sites. Easy product updates and promotions that sync automatically.
+              Szybkie wyszukiwanie produktów, skanowanie kodów kreskowych oraz obsługa wielu lokalizacji. Łatwa aktualizacja produktów i promocji, które synchronizują się automatycznie między wszystkimi punktami sprzedaży.
             </p>
           </article>
 
           <article class="rounded-2xl border border-emerald-500/35 bg-gradient-to-br from-emerald-500/20 via-slate-950 to-slate-950 p-4 shadow-lg shadow-emerald-900/60 backdrop-blur fade-section">
-            <p class="text-xs font-semibold uppercase tracking-[0.16em] text-emerald-200">Hospitality</p>
-            <h3 class="mt-2 text-sm font-semibold text-slate-50">Cafés, canteens &amp; sandwich vans</h3>
+            <p class="text-xs font-semibold uppercase tracking-[0.16em] text-emerald-200">Gastronomia</p>
+            <h3 class="mt-2 text-sm font-semibold text-slate-50">Kawiarnie, bary i food trucki</h3>
             <p class="mt-2 text-xs text-slate-200">
-              Table or counter service, kitchen print / screen options, and reporting that respects how food businesses actually operate.
+              Obsługa stolików lub sprzedaży przy ladzie, możliwość drukowania lub wyświetlania zamówień w kuchni oraz raportowanie dopasowane do realnych potrzeb gastronomii.
             </p>
           </article>
 
           <article class="rounded-2xl border border-fuchsia-500/35 bg-gradient-to-br from-fuchsia-500/15 via-slate-950 to-slate-950 p-4 shadow-lg shadow-fuchsia-900/60 backdrop-blur fade-section">
-            <p class="text-xs font-semibold uppercase tracking-[0.16em] text-fuchsia-200">Trade &amp; services</p>
-            <h3 class="mt-2 text-sm font-semibold text-slate-50">Workshops, showrooms &amp; field teams</h3>
+            <p class="text-xs font-semibold uppercase tracking-[0.16em] text-fuchsia-200">Usługi i handel specjalistyczny</p>
+            <h3 class="mt-2 text-sm font-semibold text-slate-50">Warsztaty, salony sprzedaży i zespoły terenowe</h3>
             <p class="mt-2 text-xs text-slate-200">
-              Raise orders on the move, take deposits on site, and keep parts, labour and invoices aligned with your back office.
+              Twórz zamówienia w terenie, przyjmuj zaliczki na miejscu i zarządzaj częściami, robocizną oraz fakturami zsynchronizowanymi z systemem w biurze.
             </p>
           </article>
         </div>
@@ -409,81 +404,80 @@
       <section id="how-it-works" class="mt-16 scroll-mt-24 fade-section">
         <div class="flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
           <div>
-            <h2 class="text-xl font-semibold tracking-tight sm:text-2xl">What early access looks like</h2>
+            <h2 class="text-xl font-semibold tracking-tight sm:text-2xl">Jak wygląda wczesny dostęp do systemu</h2>
             <p class="mt-1 max-w-xl text-sm text-slate-300">
-              We partner closely with a small group of businesses to shape smbPOS before general release.
+              Współpracujemy z niewielką grupą firm, aby wspólnie dopracować smbPOS przed oficjalnym uruchomieniem.
             </p>
           </div>
         </div>
 
         <div class="mt-7 grid gap-4 md:grid-cols-3">
           <article class="rounded-2xl border border-white/10 bg-slate-950/80 p-4 backdrop-blur fade-section">
-            <p class="text-xs font-semibold uppercase tracking-[0.16em] text-slate-400">Step 1</p>
-            <h3 class="mt-2 text-sm font-semibold text-slate-50">Discovery &amp; fit</h3>
+            <p class="text-xs font-semibold uppercase tracking-[0.16em] text-slate-400">Krok 1</p>
+            <h3 class="mt-2 text-sm font-semibold text-slate-50">Poznanie Twojego biznesu</h3>
             <p class="mt-2 text-xs text-slate-300">
-              We spend time understanding how your operation works today, what systems you already use, and where things are painful.
+              Zaczynamy od zrozumienia, jak działa Twoja firma: jakie systemy już używasz, jak wygląda codzienna praca i gdzie pojawiają się największe problemy.
             </p>
           </article>
 
           <article class="rounded-2xl border border-white/10 bg-slate-950/80 p-4 backdrop-blur fade-section">
-            <p class="text-xs font-semibold uppercase tracking-[0.16em] text-slate-400">Step 2</p>
-            <h3 class="mt-2 text-sm font-semibold text-slate-50">Pilot rollout</h3>
+            <p class="text-xs font-semibold uppercase tracking-[0.16em] text-slate-400">Krok 2</p>
+            <h3 class="mt-2 text-sm font-semibold text-slate-50">Wdrożenie pilotażowe</h3>
             <p class="mt-2 text-xs text-slate-300">
-              We start with a subset of tills or locations, configure smbPOS for your setup, and run it alongside your current process if needed.
+              Uruchamiamy smbPOS w wybranych punktach sprzedaży lub lokalizacjach, konfigurujemy system pod Twoją firmę i — jeśli trzeba — uruchamiamy go równolegle z obecnym procesem.
             </p>
           </article>
 
           <article class="rounded-2xl border border-white/10 bg-slate-950/80 p-4 backdrop-blur fade-section">
-            <p class="text-xs font-semibold uppercase tracking-[0.16em] text-slate-400">Step 3</p>
-            <h3 class="mt-2 text-sm font-semibold text-slate-50">Scale &amp; support</h3>
+            <p class="text-xs font-semibold uppercase tracking-[0.16em] text-slate-400">Krok 3</p>
+            <h3 class="mt-2 text-sm font-semibold text-slate-50">Skalowanie i wsparcie</h3>
             <p class="mt-2 text-xs text-slate-300">
-              Once you’re confident, we grow usage, refine reports, and keep iterating based on real-world feedback from your team.
+              Gdy system się sprawdzi, rozszerzamy wdrożenie, dopracowujemy raporty i rozwijamy funkcje na podstawie realnych opinii Twojego zespołu.
             </p>
           </article>
         </div>
       </section>
 
-      <!-- Early access / simple pricing teaser -->
+      <!-- Early access -->
       <section id="early-access" class="mt-16 scroll-mt-24 fade-section">
         <div class="grid gap-6 lg:grid-cols-[minmax(0,1.2fr)_minmax(0,1fr)] lg:items-center">
           <div>
-            <h2 class="text-xl font-semibold tracking-tight sm:text-2xl">Join the smbPOS early access list</h2>
+            <h2 class="text-xl font-semibold tracking-tight sm:text-2xl">Dołącz do listy wczesnego dostępu smbPOS</h2>
             <p class="mt-2 max-w-xl text-sm text-slate-300">
-              We’re working with a small number of operators to shape the first public version. If you’re frustrated with your current POS
-              — or still stuck on spreadsheets — we’d love to talk.
+              Pracujemy z niewielką liczbą firm, aby dopracować pierwszą publiczną wersję systemu. Jeśli Twój obecny POS Cię frustruje lub nadal korzystasz z arkuszy Excel — chętnie porozmawiamy.
             </p>
 
             <ul class="mt-4 space-y-1 text-xs text-slate-300">
-              <li>• Influence the product roadmap and feature priorities</li>
-              <li>• Priority onboarding and support from the founding team</li>
-              <li>• Simple, transparent pricing when we go live</li>
+              <li>• możliwość wpływu na rozwój produktu i nowe funkcje</li>
+              <li>• priorytetowe wdrożenie i wsparcie bezpośrednio od zespołu twórców</li>
+              <li>• proste i przejrzyste ceny po oficjalnym uruchomieniu systemu</li>
             </ul>
 
             <div class="mt-6 flex flex-wrap items-center gap-3">
               <a
-                href="mailto:info@smbpos.co.uk?subject=Early%20access%20to%20smbPOS&body=Tell%20us%20a%20bit%20about%20your%20business%2C%20how%20you%20currently%20handle%20POS%20and%20reporting%2C%20and%20what%27s%20frustrating%20you."
+                href="mailto:info@smbpos.co.uk?subject=Wczesny%20dost%C4%99p%20do%20smbPOS&body=Opisz%20kr%C3%B3tko%20swoj%C4%85%20firm%C4%99%2C%20jak%20obecnie%20obs%C5%82ugujesz%20sprzeda%C5%BC%20i%20raportowanie%2C%20oraz%20co%20najbardziej%20Ci%C4%99%20frustruje."
                 class="inline-flex items-center justify-center rounded-full bg-brand-500 px-5 py-2.5 text-sm font-semibold text-white shadow-glow hover:bg-brand-400 active:scale-[0.97]"
               >
-                Email us about early access
+                Skontaktuj się z nami i zapytaj o wczesny dostęp
               </a>
               <p class="text-xs text-slate-400">
-                Or email <span class="font-mono text-slate-200">info@smbpos.co.uk</span> directly.
+                Lub napisz bezpośrednio na <span class="font-mono text-slate-200">info@smbpos.co.uk</span>.
               </p>
             </div>
           </div>
 
           <div class="rounded-3xl border border-white/10 bg-slate-950/80 p-5 shadow-xl backdrop-blur fade-section">
-            <p class="text-xs font-semibold uppercase tracking-[0.16em] text-slate-400">What to expect</p>
+            <p class="text-xs font-semibold uppercase tracking-[0.16em] text-slate-400">Czego możesz się spodziewać</p>
             <ul class="mt-3 space-y-2 text-xs text-slate-300">
-              <li><span class="text-emerald-300">•</span> A short intro call — no hard selling.</li>
-              <li><span class="text-emerald-300">•</span> We’ll walk you through the current build and roadmap.</li>
-              <li><span class="text-emerald-300">•</span> If we’re a good fit, we discuss pilot options.</li>
-              <li><span class="text-emerald-300">•</span> If not, you still get first notice when we launch.</li>
+              <li><span class="text-emerald-300">•</span> krótkiej rozmowy wprowadzającej — bez nachalnej sprzedaży.</li>
+              <li><span class="text-emerald-300">•</span> prezentacji aktualnej wersji systemu i planu rozwoju.</li>
+              <li><span class="text-emerald-300">•</span> jeśli będzie to dobre dopasowanie — omówimy opcję wdrożenia pilotażowego.</li>
+              <li><span class="text-emerald-300">•</span> jeśli nie — nadal otrzymasz informację o premierze systemu.</li>
             </ul>
             <div class="mt-4 rounded-2xl border border-emerald-500/30 bg-emerald-500/10 px-3 py-2">
-              <p class="text-[0.7rem] font-semibold text-emerald-200">No spam. No shared data.</p>
+              <p class="text-[0.7rem] font-semibold text-emerald-200">Bez spamu. Bez udostępniania danych.</p>
               <p class="text-[0.65rem] text-emerald-100/90">
-                Your details are only used to contact you about smbPOS and will never be shared or sold.
+                Twoje dane będą użyte wyłącznie do kontaktu w sprawie smbPOS i nigdy nie będą sprzedawane ani przekazywane dalej.
               </p>
             </div>
           </div>
@@ -495,7 +489,6 @@
     <footer class="border-t border-white/5 bg-slate-950/90 fade-section">
       <div class="mx-auto flex max-w-6xl flex-col gap-4 px-4 py-6 text-xs text-slate-400 sm:flex-row sm:items-center sm:justify-between sm:px-6 lg:px-8">
         <div class="flex items-center gap-2">
-          <!-- Footer logo only -->
           <img
             src="/smbpos-logo.svg"
             alt="smbPOS"
@@ -507,17 +500,15 @@
             info@smbpos.co.uk
           </a>
           <span class="hidden h-1 w-1 rounded-full bg-slate-600 sm:inline-block"></span>
-          <p>© <span id="year"></span> smbPOS. All rights reserved.</p>
+          <p>© <span id="year"></span> smbPOS. Wszelkie prawa zastrzeżone.</p>
         </div>
       </div>
     </footer>
   </div>
 
   <script>
-    // Set current year in footer
     document.getElementById("year").textContent = new Date().getFullYear();
 
-    // Mobile menu toggling
     const toggleBtn = document.getElementById("mobile-toggle");
     const mobileMenu = document.getElementById("mobile-menu");
     const iconOpen = document.getElementById("icon-open");
@@ -538,14 +529,12 @@
       });
     });
 
-    // Fade-in on scroll using IntersectionObserver
     const fadeElements = document.querySelectorAll(".fade-section");
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
             entry.target.classList.add("fade-visible");
-            // Optional: stop observing once visible for performance
             observer.unobserve(entry.target);
           }
         });
@@ -556,25 +545,21 @@
     );
 
     fadeElements.forEach((el, index) => {
-      // Slight stagger by applying a delay via inline style
       el.style.transitionDelay = `${index * 40}ms`;
       observer.observe(el);
     });
 
-// Page loader hide on full load, with a 2s minimum display time
-window.addEventListener("load", () => {
-  const loader = document.getElementById("page-loader");
-  if (!loader) return;
+    window.addEventListener("load", () => {
+      const loader = document.getElementById("page-loader");
+      if (!loader) return;
 
-  const MIN_DURATION = 2000; // 2 seconds
+      const MIN_DURATION = 2000;
 
-  setTimeout(() => {
-    loader.classList.add("loader-hidden");
-    // Optional: remove from DOM after fade-out transition
-    setTimeout(() => loader.remove(), 700);
-  }, MIN_DURATION);
-});
+      setTimeout(() => {
+        loader.classList.add("loader-hidden");
+        setTimeout(() => loader.remove(), 700);
+      }, MIN_DURATION);
+    });
   </script>
 </body>
 </html>
-
